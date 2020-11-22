@@ -1,0 +1,28 @@
+Kafka useful CLI commands
+
+kafka-topics CLI
+
+kafka-topics --zookeeper 127.0.0.1:2181 --topic abc --create --partitions 3 --replication-factor 1
+kafka-topics --zookeeper 127.0.0.1:2181 --list
+kafka-topics --zookeeper 127.0.0.1:2181 --topic abc --describe
+
+
+kafk-producer & consumers CLI
+
+kafka-console-consumer.bat --bootstrap-server 127.0.0.1:9092 --topic abc --from-beginning 
+kafka-console-producer.bat --broker-list 127.0.0.1:9092 --topic abc --from-beginning
+
+
+consumer group CLI.
+kafka-console-consumer.bat --bootstrap-server 127.0.0.1:9092 --topic abc --group consumer_group_five --from-beginning
+
+kafka-consumer-groups --bootstrap-server 127.0.0.1:9092 --describe --group consumer_group_five
+
+kafka-consumer-groups --bootstrap-server 127.0.0.1:9092 --list
+
+
+
+consumer group offsets CLI
+
+kafka-consumer-groups --bootstrap-server 127.0.0.1:9092 --group consumer_group_five --reset-offsets --to-earliest --execute --topic abc
+ kafka-consumer-groups --bootstrap-server 127.0.0.1:9092 --group consumer_group_five --reset-offsets --shift-by --execute --topic abc
